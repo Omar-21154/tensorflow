@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  yolo-app:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_SERVER_RUNONSAVE=false
+      - STREAMLIT_LOGGER_LEVEL=info
+    volumes:
+      - ./yolo_tanima.py:/app/yolo_tanima.py
+    restart: unless-stopped
